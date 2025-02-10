@@ -21,3 +21,14 @@ $(function () {
       "responsive": true,
     });
   });
+
+  $(function () {
+    $("#contoh").DataTable({
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false
+    //   "buttons": ["colvis"] // Hanya tombol colvis yang dipertahankan
+    }).buttons().container().appendTo('#contoh_wrapper .col-md-6:eq(0)');
+
+});
+

@@ -22,14 +22,14 @@
         </tr>
         </thead>
         <tbody>
-            @foreach($users as $user)
-        <tr>
-          <td>{{ $user->name }}</td>
-          <td>{{ $user->email }}</td>
-          <td>{{ $user->role }}</td>
-          <td> 4</td>
-          <td>X</td>
-        </tr>
+        @foreach($users as $user)
+            <tr>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->role }}</td>
+            <td> 4</td>
+            <td>X</td>
+            </tr>
         @endforeach
         </tbody>
         <tfoot>

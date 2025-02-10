@@ -34,7 +34,21 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{ route('period.index') }}"
+                    class="nav-link {{ request()->routeIs('period.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Periode</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('timeline.show') }}"
+                    class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Timeline</p>
+                    </a>
+                  </li>
+                </ul>
             </ul>
             {{-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
