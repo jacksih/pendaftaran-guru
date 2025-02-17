@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\AdministrasiController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +75,23 @@ Route::middleware('auth')->group(function () {
         // Menampilkan data administrasi
         Route::get('/administrasi/{administrasi}', [AdministrasiController::class, 'show'])->name('administrasi.show');
 
+        //menampilkan data soal
+        Route::get('/tes', [QuestionController::class, 'index'])->name('questions.index');
 
+        // Menampilkan form untuk membuat soal
+        Route::get('/tes/create', [QuestionController::class, 'create'])->name('questions.create');
+
+        // Menyimpan soal baru
+        Route::post('/tes', [QuestionController::class, 'store'])->name('questions.store');
+
+        // edit soal
+        Route::get('/tes/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
+
+        // update soal
+        Route::put('/tes/{question}', [QuestionController::class, 'update'])->name('questions.update');
+
+        // delete soal
+        Route::delete('/tes/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
     });
 
     // Menampilkan form untuk membuat data administrasi
@@ -83,6 +101,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/administrasi', [AdministrasiController::class, 'store'])->name('administrasi.store');
 
     Route::get('/user/timelines', [TimelineController::class, 'showTimelines'])->name('timeline.show');
+
+    //menampilkan ujian
+    Route::get('/ujian', [ExamController::class, 'show'])->name('exam.show');
+
+    //submit ujian
+    Route::post('/ujian', [ExamController::class, 'submit'])->name('exam.submit');
 });
 
 

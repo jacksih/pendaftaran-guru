@@ -64,7 +64,27 @@
                       <p>Formulir Administrasi</p>
                     </a>
                   </li>
-                </ul>
+                  <li class="nav-item">
+                    <a href="{{ route('questions.index') }}"
+                    class="nav-link {{ request()->routeIs('questions.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Soal Tes Kemampuan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('questions.create') }}"
+                    class="nav-link {{ request()->routeIs('questions.create') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tambah Soal</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('exam.show') }}"
+                    class="nav-link {{ request()->routeIs('exam.show') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tes Kemampuan</p>
+                    </a>
+                  </li>
             </ul>
             {{-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
