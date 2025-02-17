@@ -34,6 +34,7 @@
                         </p>
                     </a>
                 </li>
+                @if(auth()->user()->role == 'admin')
                 <li class="nav-item">
                     <a href="{{ route('period.index') }}"
                     class="nav-link {{ request()->routeIs('period.index') ? 'active' : '' }}">
@@ -41,11 +42,26 @@
                       <p>Periode</p>
                     </a>
                   </li>
+                <li class="nav-item">
+                    <a href="{{ route('administrasi.index') }}"
+                    class="nav-link {{ request()->routeIs('administrasi.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Data Administrasi</p>
+                    </a>
+                  </li>
+                @endif
                   <li class="nav-item">
                     <a href="{{ route('timeline.show') }}"
                     class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Timeline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('administrasi.create') }}"
+                    class="nav-link {{ request()->routeIs('administrasi.create') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Formulir Administrasi</p>
                     </a>
                   </li>
                 </ul>

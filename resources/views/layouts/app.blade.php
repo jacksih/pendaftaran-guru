@@ -18,6 +18,7 @@
     <link rel="stylesheet"
         href="{{ asset('adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/bs-stepper/css/bs-stepper.min.css') }}">
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
@@ -95,6 +96,7 @@
     <script src="{{ asset('adminLTE/plugins/jszip/jszip.min.js') }}"></script>
     <script src="{{ asset('adminLTE/plugins/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('adminLTE/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('adminLTE/plugins/bs-stepper/js/bs-stepper.min.js') }}"></script>
     <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>

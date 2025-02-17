@@ -48,6 +48,7 @@
     </div>
   </div>
 
+  @foreach($periods as $period)
   <div class="modal fade" id="modal-xl">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -96,6 +97,7 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    @endforeach
     <!-- /.modal -->
 
 

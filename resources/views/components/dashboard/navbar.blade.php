@@ -20,6 +20,7 @@
             </a>
         </li>
         <li class="nav-item dropdown">
+            
             <button type="button" class="btn dropdown-toggle" id="navbarDropdown4" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ auth()->user()->name }}
