@@ -8,6 +8,7 @@ use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +93,9 @@ Route::middleware('auth')->group(function () {
 
         // delete soal
         Route::delete('/tes/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
+
+        //menampilkan video
+        Route::get('/video', [VideoController::class, 'index'])->name('video.index');
     });
 
     // Menampilkan form untuk membuat data administrasi
@@ -107,6 +111,12 @@ Route::middleware('auth')->group(function () {
 
     //submit ujian
     Route::post('/ujian', [ExamController::class, 'submit'])->name('exam.submit');
+
+    //menambahkan video
+    Route::get('/tambah-video', [VideoController::class, 'create'])->name('video.create');
+
+    //menyimpan video
+    Route::post('/tambah-video', [VideoController::class, 'store'])->name('video.store');
 });
 
 

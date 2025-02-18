@@ -49,21 +49,6 @@
                       <p>Data Administrasi</p>
                     </a>
                   </li>
-                @endif
-                  <li class="nav-item">
-                    <a href="{{ route('timeline.show') }}"
-                    class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Timeline</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{ route('administrasi.create') }}"
-                    class="nav-link {{ request()->routeIs('administrasi.create') ? 'active' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Formulir Administrasi</p>
-                    </a>
-                  </li>
                   <li class="nav-item">
                     <a href="{{ route('questions.index') }}"
                     class="nav-link {{ request()->routeIs('questions.index') ? 'active' : '' }}">
@@ -79,10 +64,40 @@
                     </a>
                   </li>
                   <li class="nav-item">
+                    <a href="{{ route('video.index') }}"
+                    class="nav-link {{ request()->routeIs('video.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Hasil Video Mengajar</p>
+                    </a>
+                  </li>
+                @endif
+                  <li class="nav-item">
+                    <a href="{{ route('timeline.show') }}"
+                    class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Timeline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('administrasi.create') }}"
+                    class="nav-link {{ request()->routeIs('administrasi.create') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Formulir Administrasi</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="{{ route('exam.show') }}"
                     class="nav-link {{ request()->routeIs('exam.show') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tes Kemampuan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('video.create') }}"
+                    class="nav-link {{ request()->routeIs('video.create') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tes Video Mengajar</p>
                     </a>
                   </li>
             </ul>
