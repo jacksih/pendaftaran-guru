@@ -70,6 +70,13 @@
                       <p>Hasil Video Mengajar</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{ route('interview_results.index') }}"
+                    class="nav-link {{ request()->routeIs('interview_results.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Wawancara</p>
+                    </a>
+                  </li>
                 @endif
                   <li class="nav-item">
                     <a href="{{ route('timeline.show') }}"
@@ -98,6 +105,13 @@
                     class="nav-link {{ request()->routeIs('video.create') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tes Video Mengajar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('interview_result.show') }}"
+                    class="nav-link {{ request()->routeIs('interview_result.show') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Hasil Wawancara</p>
                     </a>
                   </li>
             </ul>

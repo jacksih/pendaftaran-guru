@@ -9,6 +9,7 @@ use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\InterviewResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,15 @@ Route::middleware('auth')->group(function () {
 
         //menampilkan video
         Route::get('/video', [VideoController::class, 'index'])->name('video.index');
+
+        //menambah data wawancara
+        Route::get('/interview-results', [InterviewResultController::class, 'index'])->name('interview_results.index');
+
+        //menampilkan form wawancara
+        Route::get('/interview-results/create', [InterviewResultController::class, 'create'])->name('interview_results.create');
+
+        //menyimpan data wawancara
+        Route::post('/interview-results', [InterviewResultController::class, 'store'])->name('interview_results.store');
     });
 
     // Menampilkan form untuk membuat data administrasi
@@ -117,6 +127,9 @@ Route::middleware('auth')->group(function () {
 
     //menyimpan video
     Route::post('/tambah-video', [VideoController::class, 'store'])->name('video.store');
+
+    //menampilkan hasil wawancara
+    Route::get('/hasil-wawancara', [InterviewResultController::class, 'show'])->name('interview_result.show');
 });
 
 
