@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Administrasi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdministrasiController extends Controller
 {
@@ -14,13 +15,13 @@ class AdministrasiController extends Controller
             return redirect()->route('dashboard')->with('status', 'Anda tidak memiliki akses ke halaman tersebut');
         }
         $administrasi = Administrasi::all();
-        return view('pages.administrasi.index', compact('administrasi'));
+        return view('pages.administrasi.index', compact('administrasi',));
     }
 
-    public function show(Administrasi $administrasi)
-    {
-        return view('pages.administrasi.show', compact('administrasi'));
-    }
+    // public function show(Administrasi $administrasi)
+    // {
+    //     return view('pages.administrasi.show', compact('administrasi'));
+    // }
 
     public function create(){
         if (Administrasi::where('user_id', Auth::id())->exists()) {
@@ -172,6 +173,30 @@ class AdministrasiController extends Controller
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Formulir berhasil dikirim!');
+    }
+
+    public function preview($id)
+    {
+        $administrasi = Administrasi::find($id);
+
+        if (!$administrasi) {
+            abort(404, 'Data tidak ditemukan');
+        }
+
+        // Ambil path sesuai jenis file
+        $filePath = match($type) {
+            'cv' => $administrasi->cv,
+            'ijazah' => $administrasi->ijazah,
+            'sertifikat' => $administrasi->sertifikat,
+            default => null,
+        };
+
+        if (!$filePath || !Storage::disk('public')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        // Tampilkan PDF
+        return response()->file(storage_path('app/public/' . $filePath));
     }
 
 
