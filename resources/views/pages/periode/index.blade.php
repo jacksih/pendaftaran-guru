@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -101,8 +101,8 @@
     <!-- /.modal -->
 
 
-@endsection
-{{--
+@endsection --}}
+
 @extends('layouts.app')
 
 @section('title', 'Periode')
@@ -403,4 +403,4 @@
         <!-- /.modal -->
     </div>
     @endsection
- --}}
+
