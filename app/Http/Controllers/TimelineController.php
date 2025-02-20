@@ -10,11 +10,15 @@ use Illuminate\Http\Request;
 class TimelineController extends Controller
 {
     // Menampilkan form untuk membuat periode dan timeline
-    public function create($periodId)
+
+    public function index($periodId)
     {
         $period = Period::findOrFail($periodId);
-        return view('pages.periode.timeline.create', compact('period'));
+        $timelines = Timeline::where('period_id', $periodId)->get();
+        return view('pages.periode.timeline.index', compact('period', 'timelines'));
     }
+
+
     // Menyimpan periode dan timeline
        // Menyimpan timeline ke periode tertentu
     public function store(Request $request, $periodId)
@@ -44,13 +48,7 @@ class TimelineController extends Controller
         return view('pages.periode.timeline.show', compact('timelines'));
     }
 
-    // Menampilkan form untuk mengedit timeline
-    public function edit($periodId, $timelineId)
-    {
-        $period = Period::findOrFail($periodId);
-        $timeline = Timeline::findOrFail($timelineId);
-        return view('pages.periode.timeline.edit', compact('period', 'timeline'));
-    }
+
 
     // Memperbarui timeline yang ada
     public function update(Request $request, $periodId, $timelineId)

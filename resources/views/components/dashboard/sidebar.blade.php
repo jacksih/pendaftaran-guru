@@ -56,13 +56,13 @@
                       <p>Soal Tes Kemampuan</p>
                     </a>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="{{ route('questions.create') }}"
                     class="nav-link {{ request()->routeIs('questions.create') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tambah Soal</p>
                     </a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                     <a href="{{ route('video.index') }}"
                     class="nav-link {{ request()->routeIs('video.index') ? 'active' : '' }}">
@@ -78,7 +78,7 @@
                     </a>
                   </li>
                 @endif
-                
+
                   <li class="nav-item">
                     <a href="{{ route('timeline.show') }}"
                     class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">

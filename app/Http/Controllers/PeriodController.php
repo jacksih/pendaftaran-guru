@@ -8,11 +8,8 @@ use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {
-    // Menampilkan form untuk membuat periode
-    public function create()
-    {
-        return view('pages.periode.create');
-    }
+
+
 
     // Menyimpan periode baru
     public function store(Request $request)
@@ -36,12 +33,7 @@ class PeriodController extends Controller
         return view('pages.periode.index', compact('periods'));
     }
 
-    // Menampilkan form untuk mengedit periode
-    public function edit($id)
-    {
-        $period = Period::findOrFail($id);
-        return view('pages.periode.edit', compact('period'));
-    }
+
 
     // Memperbarui periode yang ada
     public function update(Request $request, $id)
