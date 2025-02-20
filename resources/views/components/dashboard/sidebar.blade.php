@@ -78,6 +78,7 @@
                     </a>
                   </li>
                 @endif
+                
                   <li class="nav-item">
                     <a href="{{ route('timeline.show') }}"
                     class="nav-link {{ request()->routeIs('timeline.show') ? 'active' : '' }}">

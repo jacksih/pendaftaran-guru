@@ -25,7 +25,7 @@
         <tbody>
             @foreach($periods as $period)
           <tr>
-            <td>1.</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $period->name }}</td>
             <td>{{ $period->start_date}}</td>
             <td>{{ $period->end_date }}</td>
@@ -401,5 +401,6 @@
         </div>
         @endforeach
         <!-- /.modal -->
+    </div>
     @endsection
  --}}

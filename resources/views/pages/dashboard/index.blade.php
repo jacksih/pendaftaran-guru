@@ -14,33 +14,24 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
+          <th style="width: 10px">No</th>
           <th>Name</th>
-          <th>Browser</th>
+          <th>Email</th>
           <th>Platform(s)</th>
-          <th>Engine version</th>
           <th>CSS grade</th>
         </tr>
         </thead>
         <tbody>
         @foreach($users as $user)
             <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->role }}</td>
-            <td> 4</td>
             <td>X</td>
             </tr>
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-          <th>Rendering engine</th>
-          <th>Browser</th>
-          <th>Platform(s)</th>
-          <th>Engine version</th>
-          <th>CSS grade</th>
-        </tr>
-        </tfoot>
       </table>
     </div>
     @else
