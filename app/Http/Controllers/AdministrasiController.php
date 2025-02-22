@@ -24,10 +24,11 @@ class AdministrasiController extends Controller
     // }
 
     public function create(){
-        if (Administrasi::where('user_id', Auth::id())->exists()) {
-            return redirect()->route('dashboard')->with('error', 'Anda sudah mengisi formulir.');
-        }
-        return view('pages.administrasi.create');
+        $administrasi = Administrasi::where('user_id', Auth::id())->first();
+        // if (Administrasi::where('user_id', Auth::id())->exists()) {
+        //     return redirect()->route('dashboard')->with('error', 'Anda sudah mengisi formulir.');
+        // }
+        return view('pages.administrasi.create', compact('administrasi'));
     }
 
 
@@ -172,7 +173,25 @@ class AdministrasiController extends Controller
             'esai' => $esaiPath,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Formulir berhasil dikirim!');
+        return redirect()->route('administrasi.create')->with('success', 'Formulir berhasil dikirim!');
+    }
+
+    public function show(Administrasi $administrasi)
+    {
+        $administrasi = Administrasi::all();
+
+        return view('pages.administrasi.show', compact('administrasi'));
+    }
+
+    public function updateStatus(Request $request, Administrasi $administrasi)
+    {
+        $request->validate([
+            'status' => 'required|in:lulus,tidak lulus',
+        ]);
+
+        $administrasi->update(['status' => $request->status]);
+
+        return redirect()->route('administrasi.index')->with('success', 'Status administrasi berhasil diperbarui');
     }
 
     public function preview($id)

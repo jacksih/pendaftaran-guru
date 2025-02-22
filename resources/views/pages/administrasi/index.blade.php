@@ -24,6 +24,7 @@
                 <th>Photo</th>
                 <th>CV</th>
                 <th>Aksi</th>
+                <th>status</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +40,9 @@
                     <td><a href="{{ asset('storage/' . $data->cv) }}" target="_blank">Download</a></td>
                     <td>
                         <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-detail-{{ $data->id }}">Detail</a>
+                        <a href="{{ route('administrasi.show', $data->id) }}"> lihat</a>
                     </td>
+                    <td><strong>{{ ucfirst($data->status) }}</strong></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -68,6 +68,9 @@ Route::middleware('auth')->group(function () {
         // Menampilkan data administrasi
         Route::get('/administrasi/{administrasi}', [AdministrasiController::class, 'show'])->name('administrasi.show');
 
+        //menyimpan status administrasi
+        Route::put('/administrasi/{administrasi}', [AdministrasiController::class, 'updateStatus'])->name('administrasi.status');
+
         //melihat pdf administrasi
         Route::get('/preview/{id}/pdf/{type}', [AdministrasiController::class, 'preview'])->name('pdf.preview');
 

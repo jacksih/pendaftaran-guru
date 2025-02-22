@@ -71,6 +71,7 @@ return new class extends Migration
             $table->string('apakah_orangtua_mengetahui'); //jawaban: ya/tidak
             $table->string('bersedia_ditempatkan'); //jawaban: ya/tidak
             $table->string('esai'); //pdf
+            $table->enum('status', ['pending', 'lulus', 'tidak lulus'])->default('pending');
             $table->timestamps();
         });
     }

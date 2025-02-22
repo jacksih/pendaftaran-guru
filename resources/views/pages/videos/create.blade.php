@@ -22,7 +22,7 @@
             <p class="text-danger">Link tidak valid</p>
         @endif
     @else
-        <form action="{{ route('videos.store') }}" method="POST">
+        <form action="{{ route('video.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Judul Video</label>

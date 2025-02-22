@@ -6,6 +6,15 @@
 
 <!-- /.row -->
 
+@if($administrasi)
+
+<div class="card">
+    <div class="card-header">
+        <h3>terimakasih telah mengisi Administrasi silahkan tunggu pengumuman setelah berkas diperiksa dan tahap selanjutnya sesuai timeline</h3>
+    </div>
+</div>
+
+@else
 <div class="row">
     <div class="col-md-12">
         <div class="card card-default">
@@ -415,5 +424,7 @@
         </div>
     </div>
 </div>
+
+@endif
 
 @endsection
