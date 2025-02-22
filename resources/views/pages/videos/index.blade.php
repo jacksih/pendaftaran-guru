@@ -2,31 +2,40 @@
 
 @extends('layouts.app')
 
-@section('title', 'Edit soal')
+@section('title', 'Daftar Video User')
 
 @section('content')
 
 <div class="container">
-    <h2>Daftar Video Google Drive</h2>
-    <a href="{{ route('video.create') }}" class="btn btn-success mb-3">Tambah Video</a>
+    <h2>Daftar Video User</h2>
 
-    @foreach($videos as $video)
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">{{ $video->title }}</h5>
-                @if(preg_match('/\/d\/(.*?)\//', $video->google_drive_link, $matches))
-                    <iframe
-                        src="https://drive.google.com/file/d/{{ $matches[1] }}/preview"
-                        width="560" height="315"
-                        allow="autoplay"
-                        allowfullscreen>
-                    </iframe>
-                @else
-                    <p class="text-danger">Link tidak valid</p>
-                @endif
-            </div>
-        </div>
-    @endforeach
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nama User</th>
+                <th>Judul Video</th>
+                <th>Status</th>
+                <td>lihat</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($videos as $video)
+                <tr>
+                    <td>{{ $video->user->name }}</td>
+                    <td>{{ $video->title }}</td>
+                    <td><strong>{{ ucfirst($video->status) }}</strong></td>
+                
+                    <td>
+                        <a href="{{ route('video.show', $video->id) }}"> lihta</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
 @endsection

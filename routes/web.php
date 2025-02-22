@@ -86,6 +86,15 @@ Route::middleware('auth')->group(function () {
         //menampilkan video
         Route::get('/video', [VideoController::class, 'index'])->name('video.index');
 
+        //update status video
+        Route::put('/video/{video}', [VideoController::class, 'updateStatus'])->name('video.status');
+
+        //menampilkan video yang diupload user
+        Route::get('/video/{video}', [VideoController::class, 'show'])->name('video.show');
+
+        // Route::get('/admin/videos', [VideoController::class, 'indexForAdmin'])->name('admin.videos.index');
+        // Route::patch('/admin/videos/{video}/status', [VideoController::class, 'updateStatus'])->name('admin.videos.updateStatus');
+
         //menambah data wawancara
         Route::get('/interview-results', [InterviewResultController::class, 'index'])->name('interview_results.index');
 
@@ -119,7 +128,5 @@ Route::middleware('auth')->group(function () {
     //menampilkan hasil wawancara
     Route::get('/hasil-wawancara', [InterviewResultController::class, 'show'])->name('interview_result.show');
 });
-
-
 
 require __DIR__.'/auth.php';

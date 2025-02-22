@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('google_drive_link');
+            $table->enum('status', ['pending', 'lulus', 'tidak lulus'])->default('pending');
             $table->timestamps();
         });
     }
