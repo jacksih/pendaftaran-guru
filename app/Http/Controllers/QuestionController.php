@@ -59,20 +59,6 @@ class QuestionController extends Controller
         return redirect()->route('questions.index')->with('success', 'Soal berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Question $question)
     {
         $request->validate([

@@ -56,6 +56,13 @@
                       <p>Soal Tes Kemampuan</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{ route('exams.results') }}"
+                    class="nav-link {{ request()->routeIs('exams.results') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Hasil Tes Kemampuan</p>
+                    </a>
+                  </li>
                   {{-- <li class="nav-item">
                     <a href="{{ route('questions.create') }}"
                     class="nav-link {{ request()->routeIs('questions.create') ? 'active' : '' }}">
@@ -94,12 +101,12 @@
                     </a>
                   </li>
 
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="{{ route('exam.show') }}"
                     class="nav-link {{ request()->routeIs('exam.show') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tes Kemampuan</p>
-                    </a>
+                    </a> --}}
                   </li>
                   <li class="nav-item">
                     <a href="{{ route('video.create') }}"
@@ -115,6 +122,14 @@
                       <p>Hasil Wawancara</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{ route('exams.start') }}"
+                    class="nav-link {{ request()->routeIs('exams.start') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Ujian</p></p>
+                    </a>
+                  </li>
+
             </ul>
             {{-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">

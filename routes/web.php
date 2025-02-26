@@ -86,6 +86,13 @@ Route::middleware('auth')->group(function () {
         // delete soal
         Route::delete('/tes/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 
+        //menampilkan data hasil ujian
+        Route::get('/exam-results', [ExamController::class, 'results'])->name('exams.results');
+
+        //menampilkan hasil ujian
+        Route::get('/ujian/hasil/{id}', [ExamController::class, 'result'])->name('exams.result');
+        //menampilkan hasil ujian
+
         //menampilkan video
         Route::get('/video', [VideoController::class, 'index'])->name('video.index');
 
@@ -114,6 +121,7 @@ Route::middleware('auth')->group(function () {
     // Menyimpan data administrasi
     Route::post('/administrasi', [AdministrasiController::class, 'store'])->name('administrasi.store');
 
+    //menampilkan timeline
     Route::get('/user/timelines', [TimelineController::class, 'showTimelines'])->name('timeline.show');
 
     //menampilkan ujian
@@ -130,6 +138,13 @@ Route::middleware('auth')->group(function () {
 
     //menampilkan hasil wawancara
     Route::get('/hasil-wawancara', [InterviewResultController::class, 'show'])->name('interview_result.show');
+
+    //menampilkan form ujian
+    Route::get('/ujian', [ExamController::class, 'start'])->name('exams.start');
+    //menyimpan hasil ujian
+    Route::post('/ujian/submit', [ExamController::class, 'submit'])->name('exams.submit');
+
+
 });
 
 require __DIR__.'/auth.php';
