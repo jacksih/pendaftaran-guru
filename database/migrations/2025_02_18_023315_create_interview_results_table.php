@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('interview_results', function (Blueprint $table) {
             $table->id();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->text('result');
-        $table->timestamps();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('notes')->nullable(); // Catatan wawancara
+            $table->enum('status', ['Lulus', 'Tidak Lulus'])->default('Tidak Lulus');
+            $table->timestamps();
         });
     }
 

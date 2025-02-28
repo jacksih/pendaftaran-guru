@@ -102,17 +102,13 @@ Route::middleware('auth')->group(function () {
         //menampilkan video yang diupload user
         Route::get('/video/{video}', [VideoController::class, 'show'])->name('video.show');
 
-        // Route::get('/admin/videos', [VideoController::class, 'indexForAdmin'])->name('admin.videos.index');
-        // Route::patch('/admin/videos/{video}/status', [VideoController::class, 'updateStatus'])->name('admin.videos.updateStatus');
+        Route::get('/admin/hasil-wawancara', [InterviewResultController::class, 'index'])->name('interview.index');
+        Route::get('/admin/hasil-wawancara/create', [InterviewResultController::class, 'create'])->name('interview.create');
+        Route::post('/admin/hasil-wawancara', [InterviewResultController::class, 'store'])->name('interview.store');
+        Route::get('/admin/hasil-wawancara/{id}/edit', [InterviewResultController::class, 'edit'])->name('interview.edit');
+        Route::put('/admin/hasil-wawancara/{id}', [InterviewResultController::class, 'update'])->name('interview.update');
+        Route::delete('/admin/hasil-wawancara/{id}', [InterviewResultController::class, 'destroy'])->name('interview.destroy');
 
-        //menambah data wawancara
-        Route::get('/interview-results', [InterviewResultController::class, 'index'])->name('interview_results.index');
-
-        //menampilkan form wawancara
-        Route::get('/interview-results/create', [InterviewResultController::class, 'create'])->name('interview_results.create');
-
-        //menyimpan data wawancara
-        Route::post('/interview-results', [InterviewResultController::class, 'store'])->name('interview_results.store');
     });
 
     // Menampilkan form untuk membuat data administrasi
@@ -125,7 +121,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/timelines', [TimelineController::class, 'showTimelines'])->name('timeline.show');
 
     //menampilkan ujian
-    Route::get('/ujian', [ExamController::class, 'show'])->name('exam.show');
+    Route::get('/ujian', [ExamController::class, 'start'])->name('exam.start');
 
     //submit ujian
     Route::post('/ujian', [ExamController::class, 'submit'])->name('exam.submit');
@@ -144,7 +140,8 @@ Route::middleware('auth')->group(function () {
     //menyimpan hasil ujian
     Route::post('/ujian/submit', [ExamController::class, 'submit'])->name('exams.submit');
 
-
+    //Menampilkan hasil wawancara user
+    Route::get('/hasil-interview', [InterviewResultController::class, 'showUserResult'])->name('interview.show');
 });
 
 require __DIR__.'/auth.php';

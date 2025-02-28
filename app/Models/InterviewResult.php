@@ -10,10 +10,9 @@ class InterviewResult extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'result'];
+    protected $fillable = ['user_id', 'notes', 'status'];
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 }

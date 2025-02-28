@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller {
     public function start() {
+        $user = auth()->user();
+        $hasAttempted = ExamAttempt::where('user_id', $user->id)->exists();
+
         $questions = Question::all();
-        return view('pages.exams.take', compact('questions'));
+        return view('pages.exams.take', compact('questions', 'hasAttempted'));
     }
 
     public function submit(Request $request) {
@@ -54,20 +57,20 @@ class ExamController extends Controller {
     }
 
     public function results(Request $request)
-{
-    $users = User::all(); // Ambil semua user
-    $userId = $request->input('user_id'); // Ambil user_id dari request
+    {
+        $users = User::all(); // Ambil semua user
+        $userId = $request->input('user_id'); // Ambil user_id dari request
 
-    $query = ExamAttempt::query()->with('user');
+        $query = ExamAttempt::query()->with('user');
 
-    if ($userId) {
-        $query->where('user_id', $userId);
+        if ($userId) {
+            $query->where('user_id', $userId);
+        }
+
+        $results = $query->paginate(10);
+
+        return view('pages.exams.index', compact('results', 'users', 'userId'));
     }
-
-    $results = $query->paginate(10);
-
-    return view('pages.exams.index', compact('results', 'users', 'userId'));
-}
 
 }
 

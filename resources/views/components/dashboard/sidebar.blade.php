@@ -78,8 +78,8 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ route('interview_results.index') }}"
-                    class="nav-link {{ request()->routeIs('interview_results.index') ? 'active' : '' }}">
+                    <a href="{{ route('interview.index') }}"
+                    class="nav-link {{ request()->routeIs('interview.index') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Wawancara</p>
                     </a>
@@ -116,14 +116,14 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ route('interview_result.show') }}"
-                    class="nav-link {{ request()->routeIs('interview_result.show') ? 'active' : '' }}">
+                    <a href="{{ route('interview.show') }}"
+                    class="nav-link {{ request()->routeIs('interview.show') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Hasil Wawancara</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ route('exams.start') }}"
+                    <a href="{{ route('exams.start',) }}"
                     class="nav-link {{ request()->routeIs('exams.start') ? 'active' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Ujian</p></p>
